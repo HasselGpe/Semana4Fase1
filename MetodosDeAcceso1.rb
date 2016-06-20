@@ -213,3 +213,20 @@ puts fernando.respond_to?(:id=) == false
 puts fernando.respond_to?(:id) == true
 puts fernando.respond_to?(:name) == true
 puts fernando.respond_to?(:last_name=) == true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
