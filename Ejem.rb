@@ -73,4 +73,4 @@ puts dummy_1.constant
 #no se puede sobreescribir una constante
 #puts dummy_1.constant=(4)
 puts dummy.global_var
-puts dummy.global_var=("Global")
+puts dummy.global_var=("Global"

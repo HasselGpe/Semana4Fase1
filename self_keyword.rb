@@ -57,6 +57,11 @@
 # puts DummyClass.class_method   
 # Escribe una nota explicando en tus palabras lo que entendiste en este ejercicio.
 ##################################################################################################################################################################################
+# Actividades
+# Lo primero que tienes que comprender es self dentro del contexto global. 
+# Escribe lo siguiente en un programa nuevo. Que dice?
+
+
 puts "self es igual a: #{self}" #Te dice que el self es igual a: main
 # Todo programa de ruby corre dentro de un objeto llamado main que es automáticamente creado cada vez que 
 # el programa es interpretado. Este objeto es el contexto más alto del programa o el top-level namespace.
@@ -67,22 +72,24 @@ puts "self es igual a: #{self}" #Te dice que el self es igual a: main
 # dentro de una clase y para que sirven. 
 # El primero y algo que seguro no utilizaras es:
 class DummyClass
-  # ------ Self en la clase => DummyClass self es igual al nombre de la clase en donde se encuenta
   puts "Esto esta corriendo cuando se define la clase"
-  puts "En este contexto self es igual a: #{self}" # Se imprime que es la clase DummyClass
-
-  #Self en un metodo => #<DummyClass:0x007ff31c95ad50> self es igual al nombre to_s de la clase String y id
+  puts "En este contexto self es igual a: #{self}"#Self en la clase => DummyClass self es igual al nombre de la clase en donde se encuenta#
     def intance_method
-      puts "Dentro de un método de instancia"
-      puts "En este contexto self es igual a0: #{self}"# Se imprime que es la clase DummyClass
+        puts "Dentro de un método de instancia"
+        puts "En este contexto self es igual a: #{self}"#Al correrlo me dice que es igual #<DummyClass:0x007fc5 7self es igual al nombre to_s de la clase String y id0a7f228>
     end
-  # Self en un metodo de clase declarado con self en el nombre del metdo
-    def self.class_method
-      puts "Dentro de un método de clase"
-      puts "En este contexto self es igual a1: #{self}" #<DummyClass:0x007f84ec886a58>
+      def self.class_method
+            puts "Dentro de un método de clase"
+        puts "En este contexto self es igual a1: #{self}"#Se imprime que es la clase DummyClass
     end
 end
 dummy_class = DummyClass.new()
 puts dummy_class.intance_method
-puts DummyClass.class_method 
+#Instancias de DummyClass
+dummy_class = DummyClass.new()
+#Metodo de la clase
+puts DummyClass.class_method  #Los self no pueden ser llamados por la instancia. solo pueden ser llamados usando la clase
+#donde fueron definidos
+
+
 
