@@ -109,6 +109,17 @@
 # Llama los getters por medio de esta instancia de las dos variable
 # Modifica por medio de esta instancia la variable global y luego llama su getter global.
 ################################################################################################################################################################################################################
+# Local Variables within the Global Scope
+# Crea una variable en el global_scope llamada local_var con el valor "this is my local var" después crea un método llamado return_my_local_var, este método deberá regresar simplemente local_var. 
+# Has un puts del método return_my_local_var.
+# Escribe una explicación de que esta pasando y porque obtuviste ese resultado. Para hacer las cosas más claras dentro del método return_my_local_var cambia el valor de la variable.
+# Te das cuenta como aunque tengas la misma variable en realidad son dos con el mismo nombre. La diferencia es que una pertenece al contexto global y la otra al contexto local de un método.
+# $local_var = "This is my local var"
+# def return_my_local_var
+#    $local_var
+# end
+# puts return_my_local_var
+############################################################################################################################################################################
 $local_var = "This is my local var"
 $global_var = "This is a global variable"
 CONSTANT = 3.1416
@@ -146,6 +157,7 @@ class DummyClass
   def global_var
     $global_var
   end
+  #Este es un setter
   def global_var=(value)
     $global_var = value
   end
