@@ -135,7 +135,25 @@ puts Lab.new("Labrador", "Benzy").to_s
 # súper. súper envía exactamente aquellos argumentos. El método to_s en la clase el
 # Laboratorio se refiere la variable @breed del Perro de superclase. Este código trabaja 
 # como usted probablemente lo espera:
+
 puts Lab.new("Labrador", "Benzy").to_s #==> (Labrador, Benzy)  
 
+# Porque este código se comporta como SE espera, pueden tentarle decir que estas variables 
+# son heredadas. No es como Ruby trabaja. Todos los objetos De ruby tienen un juego 
+# de variables de caso. Estos no son definidos por la clase de los objetos - ellos 
+# simplemente son creados cuando un valor les es asignado. Como las variables de caso 
+# no son definidas por una clase, ellos son sin relaciones a la subclasificación y el 
+# mecanismo de herencia. En el  código, el Lab define un método 
+# initialize que encadena al método initialize de su superclase. El método encadenado 
+# asigna valores a la variable @breed, que hace aquellas variables nacer para un caso 
+# particular de Lab.
+
+# La razón que ellos a veces aparecen ser heredados es aquellas variables de caso son 
+# creados por los métodos que primero les asignan valores, y aquellos métodos a menudo
+# son heredados o encadenados. Ya que las variables de caso no tienen nada que ver con
+# la herencia, se sigue que una variable de caso usada por una subclase no puede 
+# "la sombra" una variable de caso en la superclase. Si una subclase usa una variable 
+# de caso con el mismo nombre que una variable usada por uno de sus antepasados, esto
+# superpondrá el valor de la variable de su antepasado.
 
 
