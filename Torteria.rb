@@ -13,7 +13,7 @@ class Batch
     @numero_tortas = numero_tortas
     @tipo_tortas = tipo_tortas
   end
-  def torta_to_batch
+  def torta_cocinando
     for i in 0..@numero_tortas - 1
       @batch_tortas << Tortas.new(@tipo_tortas, @tiempo_cocinado)
     end
@@ -26,7 +26,7 @@ class Horno
     @batch_tortas = batch_tortas
     @time = rand(1..10)
   end
-  def cook_batch
+  def Cocinado
     @reporte = []
     for i in 0..@batch_tortas.length - 1
       if @time > 0 && @time < 3
@@ -48,7 +48,6 @@ end
     lista = 0
     quemada = 0 
     @reporte.each do |torta|
-      #si esta cruda
       if torta.include? "Cruda"
         crudas += 1
       elsif torta.include? "no esta lista"
@@ -59,21 +58,25 @@ end
         quemada += 1
       end   
     end
-    puts "total de tortas: #{crudas + casi_lista + lista + quemada}"
+    puts "*" * 64
+    puts "|-------------------------- Pedidos ---------------------------|"
+    puts "*" * 64
+    puts "La tortas que se pidieron fueron #{@tipo_tortas}"
+    puts "Total de tortas: #{crudas + casi_lista + lista + quemada}"
     puts "Quemadas: #{quemada}"
     puts "Crudas: #{crudas}"
     puts "Casi listas: #{casi_lista}"
     puts "Listas: #{lista}"
   end
 end
-bandeja_tortas = Batch.new(15, "Pavo", 14)
-bandeja_tortas_pollo = Batch.new(8, "Pollo", 15)
-bandeja_tortas_salchicha = Batch.new(4, "Salchicha", 10)
-bandeja2 = bandeja_tortas_pollo.torta_to_batch
-bandeja1 = bandeja_tortas.torta_to_batch
-bandeja3 = bandeja_tortas_salchicha.torta_to_batch
+bandeja_tortas = Batch.new(30, "Pollo", 10)
+bandeja_tortas_cubanas = Batch.new(28, "Cubana", 15)
+bandeja_tortas_jamon= Batch.new(21, "Jamon", 13)
+bandeja2 = bandeja_tortas_cubanas.torta_cocinando
+bandeja1 = bandeja_tortas.torta_cocinando
+bandeja3 = bandeja_tortas_jamon.torta_cocinando
 horno = Horno.new(bandeja1 + bandeja2 + bandeja3)
-horno.cook_batch
+horno.Cocinado
 horno.reporte_tortas
 
 
